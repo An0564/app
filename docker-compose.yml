@@ -1,0 +1,11 @@
+version: '2'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: joinjp/join-im-app
+    command: pm2-docker start http-server -- --port 8090
+    restart: unless-stopped
+    ports:
+      - 8077:8080
